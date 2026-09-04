@@ -62,4 +62,13 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ("id", "username", "is_superuser", "i_user", "t_user")
+        fields = (
+            "id",
+            "username",
+            "is_superuser",
+            # is_superuser is the stored flag, is_imis_admin also covers the users that
+            # get full access through the IMIS Administrator role
+            "is_imis_admin",
+            "i_user",
+            "t_user",
+        )
